@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boho Soul</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    /* Navbar Hover */
+    .navbar-nav .nav-link:hover,
+    .dropdown-menu .dropdown-item:hover {
+      color: #0d6efd !important;
+    }
+    .dropdown-menu .dropdown-item:hover {
+      background-color: #0d6efd !important;
+      color: #fff !important;
+    }
+
+    /* Logo */
+    .logo img { width: 100px; height: auto; }
+    @media (max-width: 992px) { .logo img { width: 80px; } }
+    @media (max-width: 576px) { .logo img { width: 60px; } }
+
+    /* Center Desktop Logo */
+    .navbar-brand-center {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .navbar { position: relative; }
+
+    /* Icons */
+    .nav-icon {
+      font-size: 22px;
+      margin-left: 15px;
+      color: #000;
+      transition: .3s;
+    }
+    .nav-icon:hover { color: #0d6efd; }
+
+    /* Banner */
+    .carousel-inner img {
+      max-height: 500px;
+      object-fit: cover;
+    }
+
+    /* ========== PRODUCT GRID CSS ========== */
+    :root{
+      --primary: #0d6efd;
+      --accent: #f7931e;
+      --card-radius: 12px;
+    }
+
+    /* ↓↓↓ Section gap reduced ↓↓↓ */
+    .products-section {
+      padding: 30px 0 !important;  /* OLD: 60px */
+      background: #fff;
+    }
+
+    .product-card {
+      border: 0;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      transition: all .22s ease;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(20,20,20,0.06);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(20,20,20,0.12);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      background: #f3f3f3;
+    }
+    @media(max-width:576px){ .product-img{height:200px;} }
+
+    .product-title {
+      font-size: 14px;
+      font-weight: 600;
+      min-height: 40px;
+      margin-bottom: 8px;
+    }
+    .rating { color: #f1c40f; font-size: 13px; }
+    .reviews { color:#777; font-size:12px; margin-left:4px; }
+    .price { font-weight:700; font-size:16px; }
+
+    .badge-new {
+      position: absolute;
+      left: 12px; top: 12px;
+      background: var(--accent);
+      color: #fff;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .img-overlay {
+      position: absolute;
+      right: 12px; top: 12px;
+      opacity: 0;
+      display: flex;
+      gap: 8px;
+      transition: .18s;
+    }
+    .product-card:hover .img-overlay { opacity: 1; }
+
+    .img-overlay .btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .img-overlay .btn:hover { color: var(--primary); }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar navbar-expand-lg bg-white py-3 border-bottom">
+  <div class="container-fluid">
+
+    <!-- Mobile Logo -->
+    <a class="navbar-brand d-lg-none logo" href="index.html">
+      <img src="Boho_Soul-removebg-preview.png" alt="Boho Soul">
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-3 mt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Shop</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="Summer Clothes.html">Summer Clothes</a></li>
+            <li><a class="dropdown-item" href="#">Winter Clothes</a></li>
+            <li><a class="dropdown-item" href="#">Formal Wear</a></li>
+            <li><a class="dropdown-item" href="#">Sleeping Clothes</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="About.html">About</a>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
+      </ul>
+
+      <div class="d-flex align-items-center mt-3 mt-lg-0">
+        <form class="d-flex me-3">
+          <input class="form-control me-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-primary">Search</button>
+        </form>
+
+        <a href="Sign up.html" class="nav-icon"><i class="bi bi-person"></i></a>
+        <a href="cart.html" class="nav-icon"><i class="bi bi-cart3"></i></a>
+      </div>
+    </div>
+
+    <!-- Desktop Center Logo -->
+    <a class="navbar-brand d-none d-lg-block logo navbar-brand-center" href="index.html">
+      <img src="Boho_Soul-removebg-preview.png" alt="Boho Soul">
+    </a>
+
+  </div>
+</nav>
+
+
+<!-- Bootstrap JS (ensure bundle included) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- ========== BANNER ========== -->
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="Banner 1.jpg" class="d-block w-100" alt="">
+    </div>
+    <div class="carousel-item">
+      <img src="Banner 3.jpg" class="d-block w-100" alt="">
+    </div>
+    <div class="carousel-item">
+      <img src="Banner 2.jpg" class="d-block w-100" alt="">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- ========== POPULAR COLLECTIONS SECTION ========== -->
+<section class="products-section container">
+  <h2 class="text-center mb-4">Popular <span style="color:#f7931e">Collections</span></h2>
+
+  <div class="row g-4">
+
+<!-- PRODUCT 1 -->
+<div class="col-6 col-md-4 col-lg-3">
+  <div class="card product-card position-relative">
+
+    <span class="badge-new">New</span>
+
+    <div class="position-relative">
+
+      <!-- IMAGE LINK -->
+      <a href="product-details.html">
+        <img src="Product 1.jpg" class="product-img">
+      </a>
+
+      <div class="img-overlay">
+        <!-- VIEW PRODUCT -->
+        <a href="Product Details.html" class="btn">
+          <i class="bi bi-eye"></i>
+        </a>
+
+        <!-- ADD TO CART -->
+        <a href="#" class="btn">
+          <i class="bi bi-cart-plus"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="card-body">
+
+      <!-- TITLE LINK -->
+      <a href="#" class="product-title text-decoration-none">
+        Women's Product Title
+      </a>
+
+      <div class="d-flex justify-content-between align-items-center mt-1">
+        <div class="rating">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <span class="reviews">(55 Reviews)</span>
+        </div>
+        <div class="price">$20.00</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <!-- PRODUCT 2 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 2.jpg" class="product-img">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Women's Product Title</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(55 Reviews)</span>
+            </div>
+            <div class="price">$20.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 3.jpg" class="product-img">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Women's Product Title</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(55 Reviews)</span>
+            </div>
+            <div class="price">$20.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 4 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 4.jpg" class="product-img">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Women's Product Title</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(55 Reviews)</span>
+            </div>
+            <div class="price">$20.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== NEW ARRIVALS SECTION ========== -->
+<section class="products-section container">
+  <h2 class="text-center mb-4">New <span style="color:#f7931e">Arrivals</span></h2>
+
+  <div class="row g-4">
+
+    <!-- NEW PRODUCT 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 6.jpg" class="product-img" alt="New Arrival 1">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Women's New Arrival</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(20 Reviews)</span>
+            </div>
+            <div class="price">$25.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW PRODUCT 2 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 5.jpg" class="product-img" alt="New Arrival 2">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Women's New Arrival</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(30 Reviews)</span>
+            </div>
+            <div class="price">$30.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW PRODUCT 3 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 7.jpg" class="product-img" alt="New Arrival 3">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Women's New Arrival</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(15 Reviews)</span>
+            </div>
+            <div class="price">$28.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW PRODUCT 4 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 8.jpg" class="product-img" alt="New Arrival 4">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Women's New Arrival</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(25 Reviews)</span>
+            </div>
+            <div class="price">$27.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== Our Collections ========== -->
+<section class="products-section container">
+  <h2 class="text-center mb-4">Our <span style="color:#f7931e">Collections</span></h2>
+
+  <div class="row g-4">
+
+    <!-- Collection 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 6.jpg" class="product-img" alt="New Arrival 1">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Women's Top</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(20 Reviews)</span>
+            </div>
+            <div class="price">$25.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collection 2 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 5.jpg" class="product-img" alt="New Arrival 2">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Summer Dress</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(30 Reviews)</span>
+            </div>
+            <div class="price">$30.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collection 3 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 7.jpg" class="product-img" alt="New Arrival 3">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Casual Blouse</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(15 Reviews)</span>
+            </div>
+            <div class="price">$28.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collection 4 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card product-card position-relative">
+        <span class="badge-new">New</span>
+        <div class="position-relative">
+          <img src="Product 8.jpg" class="product-img" alt="New Arrival 4">
+          <div class="img-overlay">
+            <a class="btn"><i class="bi bi-eye"></i></a>
+            <a class="btn"><i class="bi bi-cart-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="product-title">Elegant Skirt</div>
+          <div class="d-flex justify-content-between">
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <span class="reviews">(25 Reviews)</span>
+            </div>
+            <div class="price">$27.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ========== FOOTER ========== -->
+<footer style="background:#0d6efd; color:white; padding:60px 0 40px;">
+
+  <div style="
+    max-width:1200px; 
+    margin:auto; 
+    display:flex; 
+    flex-wrap:wrap; 
+    justify-content:space-between; 
+    gap:30px;
+  ">
+
+    <!-- Exclusive -->
+    <div style="flex:1; min-width:250px;">
+      <h3 style="margin-bottom:15px;">Boho Soul</h3>
+      <p style="margin:0 0 6px;">Subscribe</p>
+      <p style="margin:0 0 15px;">Get 10% off your first order</p>
+
+      <!-- Subscribe Box -->
+      <div style="position:relative; margin-top:10px; width:260px;">
+        <input type="email" placeholder="Enter your email"
+               style="width:100%; height:48px; padding:0 50px 0 14px; border-radius:8px; border:none; outline:none;">
+
+        <button style="
+          position:absolute;
+          top:50%;
+          right:6px;
+          transform:translateY(-50%);
+          width:38px;
+          height:38px;
+          border:none;
+          background:white;
+          color:#0d6efd;
+          border-radius:6px;
+          cursor:pointer;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Support -->
+    <div style="flex:1; min-width:230px;">
+      <h4 style="margin-bottom:15px;">Support</h4>
+      <p style="margin:6px 0;">111 Bijoy Sarani, Dhaka 1515, Bangladesh</p>
+      <p style="margin:6px 0;">Email: bohosoul@gmail.com</p>
+      <p style="margin:6px 0;">Phone: +88015-88888-999</p>
+    </div>
+
+    <!-- Account -->
+    <div style="flex:1; min-width:200px;">
+      <h4 style="margin-bottom:15px;">Account</h4>
+      <ul style="list-style:none; padding:0; line-height:1.9;">
+        <li><a href="#" style="color:white; text-decoration:none;">My Account</a></li>
+        <li><a href="#" style="color:white; text-decoration:none;">Login / Register</a></li>
+        <li><a href="#" style="color:white; text-decoration:none;">Cart</a></li>
+        <li><a href="#" style="color:white; text-decoration:none;">Shop</a></li>
+      </ul>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex:1; min-width:200px;">
+      <h4 style="margin-bottom:15px;">Quick Links</h4>
+      <ul style="list-style:none; padding:0; line-height:1.9;">
+        <li><a href="#" style="color:white; text-decoration:none;">Privacy Policy</a></li>
+        <li><a href="#" style="color:white; text-decoration:none;">Terms Of Use</a></li>
+        <li><a href="#" style="color:white; text-decoration:none;">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p style="
+    text-align:center; 
+    margin-top:40px; 
+    border-top:1px solid rgba(255,255,255,0.25); 
+    padding-top:18px;
+    font-size:15px;
+  ">
+    © 2025 Boho Soul. All Rights Reserved.
+  </p>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

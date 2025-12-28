@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up | Boho Soul</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f8fafc;
+    }
+
+    .signup-wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* LEFT IMAGE */
+    .signup-image {
+      flex: 1;
+      background: url("Sign up.jpg") center/cover no-repeat;
+    }
+
+    /* RIGHT FORM */
+    .signup-form {
+      flex: 1;
+      padding: 60px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #64748b;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      width: 100%;
+    }
+
+    label {
+      font-size: 13px;
+      color: #475569;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 14px;
+      background: #fff;
+      transition: all 0.25s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      height: 46px;
+    }
+
+    input::placeholder {
+      color: #9ca3af;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2b83e6;
+      box-shadow: 0 0 0 3px rgba(43,131,230,0.15);
+    }
+
+    /* PASSWORD FIELD FIX */
+    .password-field {
+      position: relative;
+    }
+
+    .password-field input {
+      padding-right: 45px; /* icon space */
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #94a3b8;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* TERMS */
+    .terms {
+      margin: 18px 0;
+    }
+
+    .terms label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #475569;
+      cursor: pointer;
+    }
+
+    .terms input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: #2b83e6;
+    }
+
+    .terms a {
+      color: #2b83e6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* BUTTON */
+    .btn-primary {
+      background: #2b83e6;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .btn-primary:hover {
+      background: #1e6fd1;
+    }
+
+    .login-text {
+      text-align: center;
+      margin: 22px 0;
+      font-size: 14px;
+    }
+
+    .login-text a {
+      color: #2b83e6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 25px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
+    }
+
+    .divider span {
+      margin: 0 10px;
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* SOCIAL */
+    .social-login {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-btn {
+      flex: 1;
+      border: 1px solid #e2e8f0;
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .social-btn:hover {
+      background: #f1f5f9;
+    }
+
+    .facebook { color: #1877f2; }
+    .google { color: #db4437; }
+    .apple { color: #000; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .signup-wrapper {
+        flex-direction: column;
+      }
+
+      .signup-image {
+        height: 260px;
+      }
+
+      .signup-form {
+        padding: 40px 25px;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="signup-wrapper">
+
+  <div class="signup-image"></div>
+
+  <div class="signup-form">
+
+    <img src="Boho_Soul-removebg-preview.png" class="logo" alt="Boho Soul">
+
+    <h1>Sign up</h1>
+    <p>Let’s get you all set up so you can access your personal account.</p>
+
+    <form>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Enter last name">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="example@email.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="text" placeholder="01XXXXXXXXX">
+        </div>
+      </div>
+
+      <div class="form-group password-field">
+        <label>Create Password</label>
+        <input type="password" id="password" placeholder="Create password">
+        <button type="button" class="password-toggle" onclick="togglePassword('password', this)">
+          <i class="fa-solid fa-eye-slash"></i>
+        </button>
+      </div>
+
+      <div class="form-group password-field">
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm password">
+        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword', this)">
+          <i class="fa-solid fa-eye-slash"></i>
+        </button>
+      </div>
+
+      <div class="terms">
+        <label>
+          <input type="checkbox">
+          I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+        </label>
+      </div>
+
+      <button class="btn-primary">Create Account</button>
+
+      <div class="login-text">
+        Already have an account? <a href="Login.html">Login</a>
+      </div>
+
+      <div class="divider">
+        <span>Or sign up with</span>
+      </div>
+
+      <div class="social-login">
+        <div class="social-btn facebook"><i class="fab fa-facebook-f"></i></div>
+        <div class="social-btn google"><i class="fab fa-google"></i></div>
+        <div class="social-btn apple"><i class="fab fa-apple"></i></div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<script>
+  function togglePassword(inputId, btn) {
+    const input = document.getElementById(inputId);
+    const icon = btn.querySelector("i");
+
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.replace("fa-eye-slash", "fa-eye");
+    } else {
+      input.type = "password";
+      icon.classList.replace("fa-eye", "fa-eye-slash");
+    }
+  }
+</script>
+
+</body>
+</html>

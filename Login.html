@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Boho Soul</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #ffffff;
+    }
+
+    .login-wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* LEFT SIDE */
+    .login-form {
+      flex: 1;
+      padding: 70px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      font-size: 13px;
+      color: #374151;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 44px 14px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    /* PASSWORD */
+    .password-field {
+      position: relative;
+    }
+
+    .password-field i {
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #6b7280;
+      cursor: pointer;
+    }
+
+    /* OPTIONS */
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0 25px;
+      font-size: 13px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .remember input {
+      width: 14px;
+      height: 14px;
+      accent-color: #2563eb;
+    }
+
+    .forgot {
+      color: #ef4444;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .btn-login {
+      background: #2783e9;
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn-login:hover {
+      background: #1d6fd6;
+    }
+
+    /* RIGHT IMAGE */
+    .login-image {
+      flex: 1;
+      background: url("Login.jpg") center / cover no-repeat;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .login-wrapper {
+        flex-direction: column;
+      }
+
+      .login-image {
+        height: 300px;
+        border-radius: 0;
+      }
+
+      .login-form {
+        padding: 40px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-wrapper">
+
+  <!-- LEFT FORM -->
+  <div class="login-form">
+
+  <!-- LOGO -->
+  <a href="index.html">
+    <img src="Boho_Soul-removebg-preview.png" class="logo" alt="Boho Soul Logo">
+  </a>
+
+
+    <h1>Login</h1>
+    <div class="subtitle">Login to access your account</div>
+
+    <form>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="example@email.com">
+      </div>
+
+      <div class="form-group password-field">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <i id="togglePassword" class="fa-regular fa-eye"></i>
+      </div>
+
+      <div class="options">
+        <label class="remember">
+          <input type="checkbox"> Remember me
+        </label>
+        <a href="Forget Password.html" class="forgot">Forgot Password</a>
+      </div>
+
+      <button type="submit" class="btn-login">Login</button>
+    </form>
+  </div>
+
+  <!-- RIGHT IMAGE -->
+  <div class="login-image"></div>
+
+</div>
+
+<script>
+  const togglePassword = document.getElementById("togglePassword");
+  const password = document.getElementById("password");
+
+  togglePassword.addEventListener("click", () => {
+    if (password.type === "password") {
+      password.type = "text";
+      togglePassword.classList.replace("fa-eye", "fa-eye-slash");
+    } else {
+      password.type = "password";
+      togglePassword.classList.replace("fa-eye-slash", "fa-eye");
+    }
+  });
+</script>
+
+</body>
+</html>
